@@ -96,7 +96,8 @@ const Hero = () => {
             >
               <span className="text-sm text-slate-400">In Strategic & project Collaboration with</span>
               <div className="hidden sm:block h-4 w-[1px] bg-white/20"></div>
-              <a href="https://heviya.in" target="_blank" rel="noreferrer" className="flex items-center gap-2 group">
+              <a href="https://heviya.in" target="_blank" rel="noreferrer" className="flex items-center gap-2 group bg-white/5 px-3 py-1 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                <img src="/heviya-logo.png" alt="Heviya" className="h-5 w-auto object-contain brightness-0 invert group-hover:invert-0 group-hover:brightness-100 transition-all duration-300" />
                 <span className="text-lg font-heading font-bold tracking-widest text-white group-hover:text-neon-cyan transition-colors">HEVIYA</span>
               </a>
             </motion.div>
