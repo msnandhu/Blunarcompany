@@ -1,8 +1,7 @@
-import { Suspense, lazy } from 'react';
+import { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, CheckCircle2 } from 'lucide-react';
-
-const Hero3D = lazy(() => import('./canvas/Hero3D'));
+import Hero3D from './canvas/Hero3D';
 
 const Hero = () => {
   const stats = [
@@ -98,11 +97,7 @@ const Hero = () => {
               <span className="text-sm text-slate-400">In Strategic & project Collaboration with</span>
               <div className="hidden sm:block h-4 w-[1px] bg-white/20"></div>
               <a href="https://heviya.in" target="_blank" rel="noreferrer" className="flex items-center gap-2 group">
-                <img 
-                  src="/heviya-logo.jpg" 
-                  alt="Heviya" 
-                  className="h-8 w-auto invert opacity-80 group-hover:opacity-100 group-hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.8)] transition-all duration-300"
-                />
+                <span className="text-lg font-heading font-bold tracking-widest text-white group-hover:text-neon-cyan transition-colors">HEVIYA</span>
               </a>
             </motion.div>
           </div>
