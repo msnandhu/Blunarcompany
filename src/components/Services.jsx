@@ -1,9 +1,8 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import { 
   Code2, ShoppingCart, Smartphone, LayoutDashboard, Database, 
-  Cpu, Megaphone, Share2, Search, Target, Mail, BarChart3, Cloud, Monitor, CheckCircle
+  Cpu, Megaphone, Share2, Search, Target, Mail, BarChart3, Cloud, Monitor
 } from 'lucide-react';
 
 const Services = () => {

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { PhoneCall, Calendar } from 'lucide-react';
+import { PhoneCall } from 'lucide-react';
 
 const CTA = () => {
   return (
@@ -33,14 +33,9 @@ const CTA = () => {
               <a href="https://wa.me/916374169846" target="_blank" rel="noreferrer" className="w-full sm:w-auto relative inline-flex group">
                 <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-neon-blue via-neon-cyan to-neon-purple rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
                 <button className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-navy-900 font-sans rounded-xl focus:outline-none border border-white/10 hover:border-white/20">
-                  <Calendar size={20} />
-                  Book Consultation
+                  <PhoneCall size={20} className="text-neon-cyan" />
+                  Contact Team
                 </button>
-              </a>
-              
-              <a href="mailto:blnar.company@gmail.com" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white transition-all duration-300 rounded-xl glass hover:bg-white/5 border border-white/10 hover:border-white/20">
-                <PhoneCall size={20} className="text-neon-cyan" />
-                Contact Team
               </a>
             </div>
           </div>

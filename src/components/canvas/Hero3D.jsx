@@ -1,48 +1,59 @@
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float, Stars, TorusKnot } from '@react-three/drei';
+import { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Sphere, Float, Stars, Box, Cylinder } from '@react-three/drei';
 
 const AnimatedShape = () => {
+  const outerHexRef = useRef();
+  const innerCubeRef = useRef();
+  
+  useFrame((state, delta) => {
+    if (outerHexRef.current) {
+      outerHexRef.current.rotation.y += delta * 0.3;
+      outerHexRef.current.rotation.z += delta * 0.1;
+    }
+    if (innerCubeRef.current) {
+      innerCubeRef.current.rotation.x -= delta * 0.4;
+      innerCubeRef.current.rotation.y -= delta * 0.3;
+    }
+  });
+
   return (
     <group>
-      <Float speed={2} rotationIntensity={2} floatIntensity={2}>
+      <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
         <group>
-          {/* Outer wireframe infinity loop */}
-          <TorusKnot args={[1.6, 0.05, 300, 64, 1, 2]} scale={1}>
-            <MeshDistortMaterial
-              color="#06b6d4"
-              emissive="#0891b2"
-              emissiveIntensity={0.8}
-              distort={0.4}
-              speed={2}
-              roughness={0.1}
-              metalness={0.9}
-              wireframe={true}
-            />
-          </TorusKnot>
-          {/* Inner solid infinity loop */}
-          <TorusKnot args={[1.2, 0.15, 300, 64, 1, 2]} scale={1}>
-            <MeshDistortMaterial
+          {/* Inner Solid Cube */}
+          <Box ref={innerCubeRef} args={[1.4, 1.4, 1.4]}>
+            <meshStandardMaterial
               color="#3b82f6"
               emissive="#1d4ed8"
-              emissiveIntensity={0.5}
-              distort={0.3}
-              speed={1.5}
-              roughness={0.2}
-              metalness={0.8}
-              wireframe={false}
+              emissiveIntensity={0.6}
+              roughness={0.1}
+              metalness={0.9}
+            />
+          </Box>
+          
+          {/* Outer Hexagonal Prism (Wireframe) */}
+          <Cylinder ref={outerHexRef} args={[2, 2, 2.5, 6]} rotation={[Math.PI / 2, 0, 0]}>
+            <meshStandardMaterial
+              color="#06b6d4"
+              emissive="#0891b2"
+              emissiveIntensity={1}
+              wireframe={true}
               transparent
               opacity={0.8}
             />
-          </TorusKnot>
+          </Cylinder>
         </group>
       </Float>
+      
+      {/* Floating Accent Spheres */}
       <Float speed={1.5} rotationIntensity={1} floatIntensity={3}>
-        <Sphere args={[0.5, 32, 32]} position={[-2, 1, -1]}>
+        <Sphere args={[0.3, 32, 32]} position={[-3, 1.5, -1]}>
           <meshStandardMaterial color="#8b5cf6" emissive="#6d28d9" emissiveIntensity={0.8} />
         </Sphere>
       </Float>
       <Float speed={2.5} rotationIntensity={1.5} floatIntensity={1.5}>
-        <Sphere args={[0.3, 32, 32]} position={[2, -1.5, 1]}>
+        <Sphere args={[0.2, 32, 32]} position={[3, -1.5, 1]}>
           <meshStandardMaterial color="#06b6d4" emissive="#0891b2" emissiveIntensity={0.8} />
         </Sphere>
       </Float>
