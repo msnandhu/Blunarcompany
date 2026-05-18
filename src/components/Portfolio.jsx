@@ -43,9 +43,9 @@ const Portfolio = () => {
     },
     {
       id: 5,
-      title: 'Udhaya Sappala Kadai',
+      title: 'Udhayas Appala Kadai',
       category: 'E-Commerce',
-      image: '/udhaya_ecommerce_new.png',
+      image: '/udayas_appala_kadai_logo.jpg',
       tech: ['React', 'Node.js', 'MongoDB'],
       url: 'https://udhayasappalakadai.com/',
     },
